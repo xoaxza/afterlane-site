@@ -13,6 +13,7 @@
   --radius: 28px;
   --max-width: 1180px;
   --transition: 180ms ease;
+  --header-offset: 6.5rem;
 }
 
 *,
@@ -181,6 +182,15 @@ img {
   box-shadow: var(--shadow);
 }
 
+#top,
+#promise,
+#collections,
+#uniform,
+#faq,
+#first-drop-previews {
+  scroll-margin-top: var(--header-offset);
+}
+
 .hero {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -247,6 +257,24 @@ h3 {
   margin: 0;
   color: var(--muted);
   font-size: 1rem;
+}
+
+.section-note,
+.promise-grid p,
+.collection-card p:last-child,
+.philosophy-card p,
+.feature-card p,
+.step-card p,
+.faq-list p,
+.site-footer p {
+  color: rgba(245, 241, 232, 0.8);
+  line-height: 1.65;
+}
+
+.feature-label span:last-child,
+.collection-index,
+.step-number {
+  color: rgba(213, 195, 161, 0.92);
 }
 
 .hero-text {

@@ -31,6 +31,33 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
 
 const header = document.querySelector(".site-header");
 
+const updateHeaderOffset = () => {
+  if (!header) {
+    return;
+  }
+
+  const offset = Math.ceil(header.getBoundingClientRect().height + 16);
+  document.documentElement.style.setProperty("--header-offset", `${offset}px`);
+};
+
+updateHeaderOffset();
+
+window.addEventListener("resize", updateHeaderOffset, { passive: true });
+
+window.addEventListener("load", () => {
+  updateHeaderOffset();
+
+  if (window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+
+    if (target) {
+      requestAnimationFrame(() => {
+        target.scrollIntoView({ block: "start" });
+      });
+    }
+  }
+});
+
 window.addEventListener(
   "scroll",
   () => {
